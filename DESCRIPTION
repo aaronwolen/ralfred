@@ -1,0 +1,20 @@
+Package: ralfred
+Type: Package
+Title: Analyze your Alfred usage.
+Version: 0.1
+Date: 2013-02-03
+Author: Aaron Wolen <aaron@wolen.com>
+Maintainer: Aaron Wolen <aaron@wolen.com>
+Description: Don't you just love Alfred's usage graph? Me too! This very simple
+    package allows you to explore your usage a little bit more.
+License: GPL-3
+Depends:
+    RSQLite,
+    ggplot2
+Imports:
+    lubridate,
+    plyr
+Collate:
+    'load.r'
+    'plot-usage.r'
+    'time.r'
