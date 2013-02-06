@@ -1,9 +1,11 @@
 #' Convert timestamp to POSIXct format
 #' 
 #' @param x Vector of raw timestamps
-#' @importFrom lubridate seconds ymd_hms
+#' @importFrom lubridate seconds ymd_hms with_tz
 convert_timestamp <- function(x) {
-  seconds(x) + ymd_hms("2000-01-01 00:00:00")
+  with_tz(
+    seconds(x) + ymd_hms("2000-01-01 00:00:00"), 
+    format(Sys.time(), "%Z"))
 }
 
 #' Adjust UTC times relative to current time zone
