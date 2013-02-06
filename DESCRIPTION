@@ -18,3 +18,4 @@ Collate:
     'load.r'
     'plot-usage.r'
     'time.r'
+    'methods.r'
