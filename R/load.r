@@ -13,6 +13,7 @@ load_usage <- function(file = "~/Library/Application\ Support/Alfred/knowledge.a
   data <- dbReadTable(sql.con, name = "knowledge")
   
   data$ts <- convert_timestamp(data$ts)
+  data <- categorize(data)
   
   class(data) <- c("alfred", class(data))
   return(data)

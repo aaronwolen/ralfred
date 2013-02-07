@@ -19,3 +19,4 @@ Collate:
     'plot-usage.r'
     'time.r'
     'methods.r'
+    'utilities.r'
