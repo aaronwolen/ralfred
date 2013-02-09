@@ -4,7 +4,7 @@
 #' @importFrom lubridate seconds ymd_hms with_tz
 convert_timestamp <- function(x) {
   with_tz(
-    seconds(x) + ymd_hms("2000-01-01 00:00:00"), 
+    seconds(x) + ymd_hms("2000-01-01 00:00:00", quiet = TRUE), 
     format(Sys.time(), "%Z"))
 }
 
