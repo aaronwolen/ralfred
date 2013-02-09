@@ -30,17 +30,10 @@ punchcard <- function(x, all.day = TRUE) {
 
   # Tabulate calls by day/hour
   x$day <- wday(x$ts, label = TRUE, abbr = FALSE)
-  x$hour <- hour(x$ts)
+  x$hour <- pretty_hour(x$ts)
+  
   call.times <- ddply(x, ~ day +  hour, summarise, count = length(ts))
-  
-  # Reformat hours to match github x-axis
-  call.times$hour <- format(strptime(call.times$hour, format = "%H"), "%l%p")
-        
-  call.times$hour <- factor(
-    tolower(sub("M", "", sub("^\\s", "", call.times$hour))),
-    levels = paste0(c(12, 1:12, 1:11), rep(c("a", "p"), each = 12)))
-  
-  
+
   p <- ggplot(call.times) + aes(hour, day) + 
     geom_point(aes(size = count)) +
     labs(x = "", y = "")

@@ -18,4 +18,21 @@ convert_timestamp <- function(x) {
 adjust_times <- function(x, hours) {
   stopifnot(is(x, "POSIXct"))
   x + hours(hours)
+}}
+
+
+#' Pretty hour labels
+#' 
+#' Extracts hours element from a date-time object and returns an ordered factor
+#' ranging from 12a to 11pm.
+#' 
+#' @param x date-time object
+#' 
+
+pretty_hour <- function(x) {
+  x <- format(x, "%l%p")
+  x <- factor(tolower(sub("M", "", sub("^\\s", "", x))),
+    levels = paste0(c(12, 1:12, 1:11), rep(c("a", "p"), each = 12)))
+  return(x) 
 }
+  
