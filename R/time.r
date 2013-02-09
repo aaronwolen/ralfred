@@ -18,7 +18,7 @@ convert_timestamp <- function(x) {
 adjust_times <- function(x, hours) {
   stopifnot(is(x, "POSIXct"))
   x + hours(hours)
-}}
+}
 
 
 #' Pretty hour labels
